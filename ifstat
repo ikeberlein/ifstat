@@ -1,4 +1,4 @@
 #!/bin/bash
-/sbin/ifconfig $1 | grep "RX bytes" | awk '{ print $2 "\n" $6 }' | sed 's/^.*://g'
+/sbin/ifconfig $1 | awk '/RX bytes/ { print $2 "\n" $6 }' | sed 's/^.*://g'
 uptime | sed 's/^.*up //g'
 hostname
