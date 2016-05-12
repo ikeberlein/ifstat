@@ -1,4 +1,6 @@
 #!/bin/bash
+# Simple script to extract interface stats for MRTG
+
 /sbin/ifconfig $1 | awk '/RX bytes/ { print $2 "\n" $6 }' | sed 's/^.*://g'
 uptime | sed 's/^.*up //g'
 hostname
